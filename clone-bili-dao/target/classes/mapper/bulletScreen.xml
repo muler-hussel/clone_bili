@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.ory//DTD MAPPER 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.BulletScreenDao">
+
+    <insert id="addBulletScreen">
+        insert into t_bullet_screen (
+            userId, videoId, content, bulletScreenTime, createTime
+        ) values (
+            #{userId}, #{videoId}, #{content}, #{bulletScreenTime}, #{createTime}
+        )
+    </insert>
+    <select id="getBulletScreen" resultType="domain.BulletScreen" parameterType="java.util.Map">
+        select
+            *
+        from
+            t_bullet_screen
+        where
+            videoId = #{videoId}
+            <if test="startTime != null and startTime != ''">
+                and createTime <![CDATA[>=]]]> #{startTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                and createTime <![CDATA[<=]]]> #{endTime}
+            </if>
+    </select>
+</mapper>

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cbili
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  elasticsearch:
+    uris: localhost:9200
+rocketmq:
+  name:
+    server:
+      address: 127.0.0.1:9876
+fdfs:
+  tracker-list: 127.0.0.1:22122
+  http:
+    storage-addr = http://127.0.0.1:80/group1/
